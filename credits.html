@@ -8,7 +8,7 @@ a{color:#3fe0b0} pre{white-space:pre-wrap;background:#141c26;border:1px solid #2
 </style></head><body><main>
 <p><a href="./index.html">← Menu</a></p>
 <h1>Credits & licenses</h1>
-<p>City Sim style tests · VERSION <script>document.write(localStorage)</script></p>
+<p id="credver">City Sim style tests</p>
 <pre># Asset licenses (Step 1 style tests)
 
 All assets below are **CC0 1.0 Universal** (public domain dedication). Free for commercial use; attribution appreciated but not required. Mirrored copies pulled from [Papyszoo/CC0-Public-Domain-Models](https://github.com/Papyszoo/CC0-Public-Domain-Models) (CC0 redistributions of upstream packs) and [OpenGameArt Kenney Car Kit](https://opengameart.org/content/car-kit).
@@ -29,5 +29,5 @@ All assets below are **CC0 1.0 Universal** (public domain dedication). Free for 
 **Engine:** three.js r170 (MIT) — https://threejs.org/
 </pre>
 <script src="./version.js"></script>
-<script>document.querySelector('p:nth-of-type(2)').textContent='City Sim style tests · '+ (window.VERSION||'');</script>
+<script>document.getElementById('credver').textContent='City Sim style tests · '+(window.VERSION||'');</script>
 </main></body></html>
