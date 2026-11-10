@@ -8,6 +8,7 @@ Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Callo
 - Opens straight to the menu (no password).
 - **v0.10:** Act 3 — The Docks (Elena Varga, the frame comes into focus). Offline: [v0.10 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.10).
 - **v0.11:** Act 4 — The Cop (Holloway, the file, Marco). Offline: [v0.11 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.11).
+- **v2.1.1:** Fixes a character-mesh crash so New Game actually enters the world with people and cars. Offline: [v2.1.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.1.1).
 - **v2.1:** Sunset Heat menu theme — displayed title CALLOWAY, original brush-lettering logo (palms and harbor cranes at sunset), pink/orange/purple gradients, VHS grain, page title and favicon. Still fully self-contained. Offline: [v2.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.1).
 - **v2.0.1:** `index.html` is fully self-contained, so a downloaded GitHub zip works from file:// (same file as `city-sim.html`). No password. Offline: [v2.0.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.0.1).
 - **v2.0:** Longer, distinct Acts 1–5 (chases, heists, tails, escorts, shootouts, getaways, checkpoints and retry), playable side stories, higher-detail characters, better Harbor Watch AI, and more district variety. Offline: [v2.0 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.0).
