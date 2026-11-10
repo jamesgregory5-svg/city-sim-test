@@ -34,6 +34,7 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 
 const params = new URLSearchParams(location.search);
 const STYLE = (params.get('style') || 'a').toLowerCase(); // a|b|c
@@ -87,7 +88,37 @@ function setTone(style) {
 setTone(STYLE);
 
 const loader = new GLTFLoader();
-const loadGLB = (url) => new Promise((res, rej) => loader.load(url, res, undefined, rej));
+loader.setMeshoptDecoder(MeshoptDecoder);
+
+/* In-memory + Cache API so shared cars/buildings/props stay warm across style views */
+const glbMem = new Map();
+const CACHE_NAME = 'cs-assets-v02';
+function loadGLB(url) {
+  if (glbMem.has(url)) return glbMem.get(url);
+  const p = (async () => {
+    let buf;
+    try {
+      const cache = await caches.open(CACHE_NAME);
+      let res = await cache.match(url);
+      if (!res) {
+        res = await fetch(url);
+        if (!res.ok) throw new Error(url + ' ' + res.status);
+        await cache.put(url, res.clone());
+      }
+      buf = await res.arrayBuffer();
+    } catch (e) {
+      /* Cache API may be unavailable; fall through to loader */
+      return new Promise((res, rej) => loader.load(url, res, undefined, rej));
+    }
+    return new Promise((res, rej) => loader.parse(buf, url.replace(/[^/]+$/, ''), res, rej));
+  })();
+  glbMem.set(url, p);
+  return p;
+}
+function takeScene(gltf) {
+  /* clone so a cached GLB can be instanced (street lights, etc.) */
+  return gltf.scene.clone(true);
+}
 
 function groundY(obj) {
   const box = new THREE.Box3().setFromObject(obj);
@@ -150,15 +181,15 @@ async function makePerson(kind, x, z, facing, walk) {
   const letters = ['a', 'b', 'c', 'd', 'e'];
   const casuals = ['casual_male','casual_female','casual2_male','casual2_female','casual3_male'];
   if (STYLE === 'c') {
-    url = `./assets/people/character_${letters[kind % 5]}.glb`;
+    url = `./assets/people/blocky_opt/character_${letters[kind % 5]}.glb`;
     idleName = 'idle'; walkName = 'walk'; scale = 1.15;
   } else {
     /* A/B: Quaternius Ultimate Animated Character casuals (rigged Walk/Idle) */
-    url = `./assets/people/${casuals[kind % casuals.length]}.glb`;
+    url = `./assets/people/casual_opt/${casuals[kind % casuals.length]}.glb`;
     idleName = 'Idle'; walkName = 'Walk'; scale = STYLE === 'b' ? 1.0 : 1.0;
   }
   const gltf = await loadGLB(url);
-  const root = gltf.scene;
+  const root = gltf.scene; /* skinned — don't clone; each person file is used once */
   root.scale.setScalar(scale);
   enableShadows(root);
   if (STYLE === 'c') {
@@ -196,7 +227,7 @@ async function makePerson(kind, x, z, facing, walk) {
 
 async function makeCar(url, x, z, rotY, colorHex) {
   const gltf = await loadGLB(url);
-  const root = gltf.scene;
+  const root = takeScene(gltf);
   root.scale.setScalar(1);
   enableShadows(root);
   if (colorHex != null) {
@@ -266,18 +297,18 @@ function addStreet() {
 
 async function addBuildings() {
   const files = [
-    ['./assets/city/building_a.glb', -14, -18, 0],
-    ['./assets/city/building_b.glb', -5, -19, 0],
-    ['./assets/city/building_c.glb', 5, -18, 0],
-    ['./assets/city/building_d.glb', 14, -19, 0],
-    ['./assets/city/building_e.glb', -13, 18, Math.PI],
-    ['./assets/city/building_f.glb', 0, 19, Math.PI],
-    ['./assets/city/building_type_a.glb', 13, 18, Math.PI],
+    ['./assets/city_opt/building_a.glb', -14, -18, 0],
+    ['./assets/city_opt/building_b.glb', -5, -19, 0],
+    ['./assets/city_opt/building_c.glb', 5, -18, 0],
+    ['./assets/city_opt/building_d.glb', 14, -19, 0],
+    ['./assets/city_opt/building_e.glb', -13, 18, Math.PI],
+    ['./assets/city_opt/building_f.glb', 0, 19, Math.PI],
+    ['./assets/city_opt/building_type_a.glb', 13, 18, Math.PI],
   ];
   for (const [url, x, z, rot] of files) {
     try {
       const g = await loadGLB(url);
-      const r = g.scene;
+      const r = takeScene(g);
       /* Kenney commercial buildings are tiled small — scale to street height */
       r.scale.setScalar(8);
       enableShadows(r);
@@ -293,8 +324,8 @@ async function addBuildings() {
 async function addLightsProps() {
   for (const [x, z] of [[-8, -5.4], [8, -5.4], [-8, 5.4], [8, 5.4]]) {
     try {
-      const g = await loadGLB('./assets/city/light_curved.glb');
-      const r = g.scene;
+      const g = await loadGLB('./assets/city_opt/light_curved.glb');
+      const r = takeScene(g);
       r.scale.setScalar(2.5);
       enableShadows(r, true, true);
       r.position.set(x, 0, z);
@@ -309,7 +340,7 @@ async function addLightsProps() {
     } catch (e) {}
   }
   try {
-    const t = await loadGLB('./assets/city/tree_small.glb');
+    const t = await loadGLB('./assets/city_opt/tree_small.glb');
     for (const [x, z] of [[-13, 8], [13, -8], [13, 8]]) {
       const r = t.scene.clone(true);
       enableShadows(r);
@@ -384,14 +415,25 @@ function camOrbit(t) {
   camera.lookAt(0, 1.3, 0);
 }
 
+let started = false;
 async function build() {
-  hud.textContent = `building style ${STYLE.toUpperCase()}…`;
+  hud.textContent = `loading style ${STYLE.toUpperCase()}…`;
   setupLighting();
   addStreet();
+  setCamera('wide');
+  if (INTERACTIVE && controls) { controls.target.set(0, 1.2, 0); controls.update(); }
+  t0 = performance.now() / 1000;
+  started = true;
+  requestAnimationFrame(loop); /* street / first frame ASAP */
+
   await addBuildings();
   await addLightsProps();
 
-  // People: 4 walkers on near sidewalk, 1 idle
+  // Cars stream in first (shared, smaller), then this style's people only
+  await makeCar('./assets/cars_opt/sedan.glb', -7, 2.6, Math.PI / 2, 0x2a5fcf);
+  await makeCar('./assets/cars_opt/suv.glb', 6.5, -2.5, -Math.PI / 2, 0xc0c4ca);
+  drivingCar = await makeCar('./assets/cars_opt/taxi.glb', -14, 0.2, Math.PI / 2, 0xe6c200);
+
   if (STYLE === 'c') {
     await makePerson(0, -6, -7.0, Math.PI / 2, true);
     await makePerson(1, -2, -7.3, Math.PI / 2, true);
@@ -406,13 +448,7 @@ async function build() {
     await makePerson(4, -5, 7.15, Math.PI, false);
   }
 
-  // Cars: 2 parked + 1 driving
-  await makeCar('./assets/cars/sedan.glb', -7, 2.6, Math.PI / 2, 0x2a5fcf);
-  await makeCar('./assets/cars/suv.glb', 6.5, -2.5, -Math.PI / 2, 0xc0c4ca);
-  drivingCar = await makeCar('./assets/cars/taxi.glb', -14, 0.2, Math.PI / 2, 0xe6c200);
-
   setCamera('wide');
-  t0 = performance.now() / 1000;
   ready = true;
   window.__OW = {
     ready: true,
@@ -425,11 +461,7 @@ async function build() {
   hud.textContent = INTERACTIVE
     ? `Style ${STYLE.toUpperCase()} · drag to look · scroll zoom · Esc/menu via back`
     : `style ${STYLE.toUpperCase()} ready`;
-  if (INTERACTIVE) {
-    setCamera('wide');
-    if (controls) { controls.target.set(0, 1.2, 0); controls.update(); }
-  }
-  requestAnimationFrame(loop);
+  if (INTERACTIVE && controls) { controls.target.set(0, 1.2, 0); controls.update(); }
 }
 
 let last = 0;
@@ -456,7 +488,7 @@ let frozen = false;
 function renderOnce(){ if (composer) composer.render(); else renderer.render(scene, camera); }
 function loop() {
   requestAnimationFrame(loop);
-  if (!ready) return;
+  if (!started) return;
   if (!frozen) {
     const t = performance.now() / 1000 - t0;
     tickFixed(t);
