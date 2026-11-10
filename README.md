@@ -4,6 +4,7 @@ Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Callo
 
 - Live: https://jamesgregory5-svg.github.io/city-sim-test/
 - Password: same as Tour Sim
+- **v0.8:** Money, Calloway Arms, and Act 1 — Back in Port Calloway. Follow the green marker. Offline: [v0.8 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.8).
 - **v0.7:** Heat, Harbor Watch cops, original weapons, wounds and heavy gore, Calloway Arms shop. Offline: [v0.7 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.7).
 - **v0.5.2:** Higher-detail character shading — PBR skin and hair, smoother normals, and sharper rendering. Offline: [v0.5.2 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.5.2).
 - **v0.5.1:** WASD after New Game, a cleaner character creator (top/bottom colors and facial hair fixed), "Press O to open the car door" (E still works), and a small corner minimap. Offline: [v0.5.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.5.1).
