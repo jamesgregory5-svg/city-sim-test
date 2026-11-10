@@ -5,9 +5,10 @@ Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Callo
 **v1.0** is the full original campaign in Port Calloway: character creator, driving, heat and weapons, money and shops, Acts 1–5 with branching endings, day/night, weather, original radio, and buyable properties. No Rockstar / GTA names, maps, characters, or music.
 
 - Live: https://jamesgregory5-svg.github.io/city-sim-test/
-- Password: same as Tour Sim
+- Opens straight to the menu (no password).
 - **v0.10:** Act 3 — The Docks (Elena Varga, the frame comes into focus). Offline: [v0.10 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.10).
 - **v0.11:** Act 4 — The Cop (Holloway, the file, Marco). Offline: [v0.11 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.11).
+- **v1.0.1:** No password gate — Pages and the offline file open straight to the menu. Offline: [v1.0.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v1.0.1).
 - **v1.0:** Full Port Calloway campaign (Acts 1–5) plus day/night, weather, radio, sound, and properties. Offline: [v1.0 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v1.0).
 - **v0.13:** Day/night, weather, original radio, sound, and buyable properties. Offline: [v0.13 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.13).
 - **v0.12:** Act 5 — Payback, branching endings (Nina / Elena / solo). Offline: [v0.12 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.12).
@@ -20,6 +21,6 @@ Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Callo
 - v0.5: Get in any car (E), arcade driving, chase camera, basic body damage, lane traffic.
 - v0.4: Character creator, three save slots, walk/run, feet grounded to sidewalk vs road.
 
-To play offline: download `city-sim.html` (or `city-sim-offline.zip`) from the [v0.5.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.5.1) and open that file (no server). If you clone the repo, open `city-sim.html` for a self-contained copy; `index.html` is the live-site page and loads assets over HTTP. Enter the Tour Sim password, then New Game or Continue.
+To play offline: download `city-sim.html` (or `city-sim-offline.zip`) from the [v0.5.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.5.1) and open that file (no server). If you clone the repo, open `city-sim.html` for a self-contained copy; `index.html` is the live-site page and loads assets over HTTP. Opens straight to the menu. Then New Game or Continue.
 
 Walk or drive with WASD or the arrow keys. Near a car, press O (or E) to get in.

@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>City Sim · Port Calloway</title>
-<script>window.VERSION='v1.0';</script>
+<script>window.VERSION='v1.0.1';</script>
 <style>
   :root{--bg:#0b1016;--card:#141c26;--line:#2a3a4a;--accent:#3fe0b0;--warn:#ffd24a;--text:#e8eef5;--muted:#8aa0b5}
   *{box-sizing:border-box}
@@ -139,16 +139,7 @@
 </style>
 
 </head>
-<body class="locked">
-<div id="gate">
-  <form class="box" id="gf" autocomplete="off">
-    <h1>City Sim</h1>
-    <p>Password required (same as Tour Sim).</p>
-    <input id="gp" type="password" placeholder="password" autofocus/>
-    <button type="submit">Enter</button>
-    <div id="ge"></div>
-  </form>
-</div>
+<body>
 <div id="app">
   <div class="hdr">
     <h1>City Sim</h1>
@@ -294,25 +285,8 @@
 
 <script>
 (function(){
-  function unlocked(){
-    try{ return sessionStorage.getItem('cs.gate')==='1'; }catch(e){ return false; }
-  }
-  function unlock(){
-    try{ sessionStorage.setItem('cs.gate','1'); }catch(e){}
-    document.body.classList.remove('locked');
-  }
-  if (unlocked()) document.body.classList.remove('locked');
-  var f=document.getElementById('gf'), i=document.getElementById('gp'), e=document.getElementById('ge');
-  function go(){
-    unlock();
-    try { window.startCitySim && window.startCitySim(); } catch(err){ console.error(err); }
-  }
-  f.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    if(i.value.trim()==='donaldjtrump'){ go(); }
-    else { e.textContent='Wrong password.'; }
-  });
-  if (unlocked()) go();
+  try { document.body.classList.remove('locked'); } catch(e){}
+  try { window.startCitySim && window.startCitySim(); } catch(err){ console.error(err); }
 })();
 
 </script>
