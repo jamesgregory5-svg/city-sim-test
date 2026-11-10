@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>City Sim · style tests</title>
+<script src="./version.js"></script>
+<style>
+  :root{--bg:#0b1016;--card:#141c26;--line:#2a3a4a;--accent:#3fe0b0;--warn:#ffd24a;--text:#e8eef5;--muted:#8aa0b5}
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;background:radial-gradient(1200px 600px at 20% -10%,#1a2838,var(--bg));color:var(--text);font:16px/1.45 system-ui,sans-serif}
+  body.locked #app{display:none}
+  body:not(.locked) #gate{display:none}
+  #gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  #gate .box{width:min(420px,100%);background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px;box-shadow:0 20px 60px #0008}
+  #gate h1{margin:0 0 8px;font-size:22px}
+  #gate p{margin:0 0 16px;color:var(--muted);font-size:14px}
+  #gate input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:#0d141c;color:#fff;font:inherit;margin-bottom:10px}
+  #gate button{width:100%;padding:12px;border:0;border-radius:10px;background:var(--accent);color:#062218;font-weight:800;cursor:pointer}
+  #ge{color:#ff8a7a;min-height:1.2em;font-size:13px;margin:6px 0 0}
+  #app{max-width:880px;margin:0 auto;padding:28px 18px 60px}
+  .hdr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .hdr h1{margin:0;font-size:28px}
+  .ver{color:var(--warn);font-weight:800;font-size:13px;letter-spacing:.04em}
+  .lead{color:var(--muted);margin:0 0 22px}
+  .grid{display:grid;gap:12px}
+  @media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr}}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;transition:.15s transform,.15s border-color}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+  a.card h2{margin:0 0 6px;font-size:18px}
+  a.card p{margin:0;color:var(--muted);font-size:13px}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:999px;background:#1c2a22;color:var(--accent);margin-bottom:8px}
+  .foot{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .foot a{color:var(--accent)}
+  .note{margin-top:18px;padding:12px 14px;border-radius:12px;background:#121820;border:1px solid var(--line);font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body class="locked">
+<div id="gate">
+  <form class="box" id="gf" autocomplete="off">
+    <h1>City Sim</h1>
+    <p>Style tests · password required (same as Tour Sim).</p>
+    <input id="gp" type="password" placeholder="password" autofocus/>
+    <button type="submit">Enter</button>
+    <div id="ge"></div>
+  </form>
+</div>
+<div id="app">
+  <div class="hdr">
+    <h1>City Sim · style tests</h1>
+    <div class="ver" id="ver"></div>
+  </div>
+  <p class="lead">Step 1 approval gate: pick a look. Each scene is an original street corner at golden hour — orbit with the mouse, scroll to zoom, watch people walk and a car drive past. No Rockstar / GTA characters, names, maps, logos, or music.</p>
+  <div class="grid">
+    <a class="card" href="./preview.html?style=a&play=1">
+      <div class="tag">STYLE A</div>
+      <h2>Clean stylized</h2>
+      <p>Smooth shading, ACES tone map, soft bloom. Quaternius casual characters with Walk/Idle.</p>
+    </a>
+    <a class="card" href="./preview.html?style=b&play=1">
+      <div class="tag">STYLE B</div>
+      <h2>Semi-realistic</h2>
+      <p>PBR-leaning materials, stronger fill, bloom + SMAA. Same rigged casuals, calmer grade.</p>
+    </a>
+    <a class="card" href="./preview.html?style=c&play=1">
+      <div class="tag">STYLE C</div>
+      <h2>Chunky low-poly</h2>
+      <p>Flat shading, bold Kenney blocky walkers, toy-like read. Same street / cars / lights.</p>
+    </a>
+  </div>
+  <div class="note">Working title only. Everything here is original scene assembly from CC0 packs (see Credits). Saves / progress not shared with Tour Sim.</div>
+  <div class="foot">
+    <a href="./credits.html">Credits & licenses</a>
+  </div>
+</div>
+<script>
+(function(){
+  document.getElementById('ver').textContent = (window.VERSION||'?');
+  try{ if(sessionStorage.getItem('cs.gate')==='1') document.body.classList.remove('locked'); }catch(e){}
+  var f=document.getElementById('gf'), i=document.getElementById('gp'), e=document.getElementById('ge');
+  setTimeout(function(){try{i.focus()}catch(x){}},50);
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(i.value.trim()==='donaldjtrump'){
+      try{sessionStorage.setItem('cs.gate','1')}catch(x){}
+      e.textContent=''; document.body.classList.remove('locked');
+    } else { e.textContent='incorrect'; }
+  });
+})();
+</script>
+</body>
+</html>
