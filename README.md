@@ -8,6 +8,7 @@ Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Callo
 - Opens straight to the menu (no password).
 - **v0.10:** Act 3 — The Docks (Elena Varga, the frame comes into focus). Offline: [v0.10 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.10).
 - **v0.11:** Act 4 — The Cop (Holloway, the file, Marco). Offline: [v0.11 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.11).
+- **v2.3:** Soft aim assist (lock-on and look slowdown near people), toggle in the pause menu, on by default. Offline: [v2.3 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.3).
 - **v2.2:** Higher-res character shading, clothes that fit and keep the right colors, no skinned tessellation. Offline: [v2.2 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.2).
 - **v2.1.2:** Removes a post-process bloom pass that drew a solid black rectangle in the middle of the city. Offline: [v2.1.2 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.1.2).
 - **v2.1.1:** Fixes a character-mesh crash so New Game actually enters the world with people and cars. Offline: [v2.1.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.1.1).
