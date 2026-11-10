@@ -2,12 +2,13 @@
 
 Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Calloway, a fictional coastal city.
 
-**v1.0** is the full original campaign in Port Calloway: character creator, driving, heat and weapons, money and shops, Acts 1–5 with branching endings, day/night, weather, original radio, and buyable properties. No Rockstar / GTA names, maps, characters, or music.
+**v2.0** reworks the Port Calloway campaign with longer missions, playable side stories, higher-detail characters, sharper cop pursuit, and more variety between districts. **v1.0** remains the original full campaign release: character creator, driving, heat and weapons, money and shops, Acts 1–5 with branching endings, day/night, weather, original radio, and buyable properties. No Rockstar / GTA names, maps, characters, or music.
 
 - Live: https://jamesgregory5-svg.github.io/city-sim-test/
 - Opens straight to the menu (no password).
 - **v0.10:** Act 3 — The Docks (Elena Varga, the frame comes into focus). Offline: [v0.10 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.10).
 - **v0.11:** Act 4 — The Cop (Holloway, the file, Marco). Offline: [v0.11 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.11).
+- **v2.0:** Longer, distinct Acts 1–5 (chases, heists, tails, escorts, shootouts, getaways, checkpoints and retry), playable side stories, higher-detail characters, better Harbor Watch AI, and more district variety. Offline: [v2.0 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v2.0).
 - **v1.0.1:** No password gate — Pages and the offline file open straight to the menu. Offline: [v1.0.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v1.0.1).
 - **v1.0:** Full Port Calloway campaign (Acts 1–5) plus day/night, weather, radio, sound, and properties. Offline: [v1.0 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v1.0).
 - **v0.13:** Day/night, weather, original radio, sound, and buyable properties. Offline: [v0.13 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.13).

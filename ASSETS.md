@@ -6,7 +6,7 @@ All assets below are **CC0 1.0 Universal** (public domain dedication) unless not
 | --- | --- | --- | --- | --- |
 | Ultimate Modular Men / Women (m_casual2, m_hoodie, m_suit, m_worker, f_casual, f_formal, f_worker, f_punk) — Idle, Walk, Run | Quaternius | https://quaternius.com/assets/ultimatemodularcharacters · https://quaternius.com/assets/ultimatemodularwomen · redistrib. https://github.com/LuanDucate/Ducz.CharacterCreator | CC0 | People, player, character creator |
 | Car Kit (sedan, suv, taxi) | Kenney | https://kenney.nl/assets/car-kit | CC0 | Cars |
-| City Kit Commercial / Roads / Suburban (buildings, lights, trees) | Kenney | https://kenney.nl | CC0 | Street scenery |
+| City Kit Commercial / Roads / Suburban (buildings, lights, trees, awnings, square lamps, skyscraper) | Kenney | https://kenney.nl | CC0 | Street scenery, district variety |
 | Engine: three.js r170 | three.js authors | https://threejs.org/ | MIT | Runtime |
 
 **v0.5.1 packaging:** Playable original character (creator + walk/run) uses the same Modular Men/Women packs, meshopt-compressed, Idle/Walk/Run kept. The live `index.html` loads models over HTTP; `city-sim.html` is a single self-contained file for `file://` / offline. Cache API is optional. Setting and story names (Port Calloway and its residents) are original and shipped as data only in this version. Cars use the Kenney Car Kit (enter/exit and AI lane traffic).
