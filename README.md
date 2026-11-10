@@ -2,10 +2,13 @@
 
 Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Calloway, a fictional coastal city.
 
+**v1.0** is the full original campaign in Port Calloway: character creator, driving, heat and weapons, money and shops, Acts 1–5 with branching endings, day/night, weather, original radio, and buyable properties. No Rockstar / GTA names, maps, characters, or music.
+
 - Live: https://jamesgregory5-svg.github.io/city-sim-test/
 - Password: same as Tour Sim
 - **v0.10:** Act 3 — The Docks (Elena Varga, the frame comes into focus). Offline: [v0.10 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.10).
 - **v0.11:** Act 4 — The Cop (Holloway, the file, Marco). Offline: [v0.11 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.11).
+- **v1.0:** Full Port Calloway campaign (Acts 1–5) plus day/night, weather, radio, sound, and properties. Offline: [v1.0 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v1.0).
 - **v0.13:** Day/night, weather, original radio, sound, and buyable properties. Offline: [v0.13 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.13).
 - **v0.12:** Act 5 — Payback, branching endings (Nina / Elena / solo). Offline: [v0.12 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.12).
 - **v0.9:** Act 2 — Body Shop Crew (boosts, races, freight, Ridge Boys). Offline: [v0.9 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.9).
