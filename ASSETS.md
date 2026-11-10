@@ -9,6 +9,6 @@ All assets below are **CC0 1.0 Universal** (public domain dedication) unless not
 | City Kit Commercial / Roads / Suburban (buildings, lights, trees) | Kenney | https://kenney.nl | CC0 | Street scenery |
 | Engine: three.js r170 | three.js authors | https://threejs.org/ | MIT | Runtime |
 
-**v0.4 packaging:** Playable original character (creator + walk/run) uses the same Modular Men/Women packs, meshopt-compressed, Idle/Walk/Run kept. The live `index.html` loads models over HTTP; `city-sim.html` is a single self-contained file for `file://` / offline. Cache API is optional. Setting and story names (Port Calloway and its residents) are original and shipped as data only in this version.
+**v0.5 packaging:** Playable original character (creator + walk/run) uses the same Modular Men/Women packs, meshopt-compressed, Idle/Walk/Run kept. The live `index.html` loads models over HTTP; `city-sim.html` is a single self-contained file for `file://` / offline. Cache API is optional. Setting and story names (Port Calloway and its residents) are original and shipped as data only in this version. Cars use the Kenney Car Kit (enter/exit and AI lane traffic).
 
 **Not used:** Rockstar / GTA characters, names, maps, logos, music, or mission recreations. No likeness of real or famous people. Kenney Animated Blocky Characters are not included. Scene layout (asphalt, sidewalks, curbs, grass, lane paint) authored for this project.
