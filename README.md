@@ -6,6 +6,7 @@ Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Callo
 
 - Live: https://jamesgregory5-svg.github.io/city-sim-test/
 - Opens straight to the menu (no password).
+- **v3.2:** Title is CITY SIM again — Sunset Heat theme kept, with a new compact logo, a cleaner title page, and two inlined OFL fonts (Bungee and Rajdhani) so the menu, HUD, loadout, and game over share one look offline. Offline: [v3.2 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v3.2).
 - **v0.10:** Act 3 — The Docks (Elena Varga, the frame comes into focus). Offline: [v0.10 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.10).
 - **v0.11:** Act 4 — The Cop (Holloway, the file, Marco). Offline: [v0.11 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.11).
 - **v3.1:** Enterable buildings across Port Calloway — visible swinging doors with an E prompt, a fade into a simple furnished interior that counts as a deep hiding spot, cops that can follow if they saw you go in, and door marks on the minimap. Offline: [v3.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v3.1).
