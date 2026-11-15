@@ -6,6 +6,7 @@ Playable original browser city scene (no Rockstar / GTA IP). Setting: Port Callo
 
 - Live: https://jamesgregory5-svg.github.io/city-sim-test/
 - Opens straight to the menu (no password).
+- **v3.3.1:** Stops the sideways snap when you run past the end of a wall; white arrows on the minimap and hide pointer; hiding spots kept off roads and sidewalks; cops keep a 0.6 m gap so they do not clip into you. Offline: [v3.3.1 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v3.3.1).
 - **v3.3:** Faster running, a fix for the sideways snap while sprinting, a simple 6-character select screen, a calm round start (no cops until the first kill), police who run at your sprint speed, a 3-second catch meter that ends the round with BUSTED, and clearer hiding-spot markers (minimap, world beacons, and an on-screen arrow). Offline: [v3.3 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v3.3).
 - **v3.2:** Title is CITY SIM again — Sunset Heat theme kept, with a new compact logo, a cleaner title page, and two inlined OFL fonts (Bungee and Rajdhani) so the menu, HUD, loadout, and game over share one look offline. Offline: [v3.2 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v3.2).
 - **v0.10:** Act 3 — The Docks (Elena Varga, the frame comes into focus). Offline: [v0.10 release](https://github.com/jamesgregory5-svg/city-sim-test/releases/tag/v0.10).
