@@ -1,1 +1,1 @@
-window.VERSION='v3.3.6';
+window.VERSION='v3.4';
